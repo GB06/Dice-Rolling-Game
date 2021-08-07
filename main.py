@@ -1,4 +1,5 @@
 import random
+import time
 
 def main():
     player1 = 0
@@ -8,29 +9,31 @@ def main():
     rounds = 1
 
     while rounds != 6:
-        print(f"-Round- {rounds}")
+        time.sleep(2)
+        print(f"Round {rounds}")
         player1 = diceRoll()
         player2 = diceRoll()
-        print(f"Player 1 is rolling {player1}")
-        print(f"Player 2 is rolling {player2}")
+        print(f"Player A rolling {player1}")
+        time.sleep(3)
+        print(f"Player B rolling {player2}")
 
         if player1 == player2:
-            print("It's a draw!\n")
+            print("Tie!\n")
         elif player1 > player2:
             player1wins = player1wins + 1
-            print("Player 1 wins!\n")
+            print("Player A wins!\n")
         else:
             player2wins = player2wins + 1
-            print("Player 2 wins\n")
+            print("Player B wins!\n")
 
         rounds = rounds + 1
 
     if player1wins == player2wins:
         print("Tie!\n")
     elif player1wins > player2wins:
-        print(f"Player 1 wins with the score of {player1wins}!\n")
+        print(f"Player A wins with {player1wins}\n")
     else:
-        print(f"Player 2 wins with the score of {player2wins}!\n")        
+        print(f"Player B wins with {player2wins}\n")        
 
 def diceRoll():
     diceRoll = random.randint(1,6)
